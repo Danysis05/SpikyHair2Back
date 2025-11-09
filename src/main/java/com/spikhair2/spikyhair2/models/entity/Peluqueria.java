@@ -54,8 +54,9 @@ public class Peluqueria {
     // Relacion con servicios
     @OneToMany(mappedBy = "peluqueria", cascade = CascadeType.ALL)
     private List<Servicio> servicios;
-    
+
     // Relación con estilistas
     @OneToMany(mappedBy = "peluqueria", cascade = CascadeType.ALL)
     private List<Estilista> estilistas;
+    
 }
