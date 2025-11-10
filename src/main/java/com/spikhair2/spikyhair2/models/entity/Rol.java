@@ -11,10 +11,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name= "roles")
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class Rol {
     @Id
@@ -26,6 +30,10 @@ public class Rol {
 
     @OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Usuario> usuarios = new ArrayList<>();
+    public Rol(String name) {
+        this.name = name;
+    }
+
     
 
 }

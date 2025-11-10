@@ -1,11 +1,12 @@
 package com.spikhair2.spikyhair2.models.entity;
 
-import org.springframework.data.annotation.Id;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -30,7 +31,11 @@ public class Estilista {
     private String email;
 
     @Column(length = 255)
-    private String imagen; // Ruta o URL de la foto del estilista
+    private String imagen;// Ruta o URL de la foto del estilista
+
+    @ManyToOne
+    @JoinColumn(name = "peluqueria_id", nullable = false)
+    private Peluqueria peluqueria;
     
 
 
